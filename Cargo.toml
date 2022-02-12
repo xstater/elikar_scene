@@ -1,0 +1,18 @@
+[package]
+name = "elikar_scene"
+version = "0.1.0"
+edition = "2021"
+authors = ["xstater:a166224@163.com"]
+license = "MIT"
+description = "scene manager for elikar"
+readme = "README.md"
+repository = "https://github.com/xstater/elikar_scene"
+keywords = ["gamedev","game-engine"]
+categories = ["game-development","game-engines"]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+elikar = "0.1"
+xecs = "0.4"
+nalgebra-glm = "0.16"
