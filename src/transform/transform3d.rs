@@ -12,6 +12,7 @@ pub struct Transform3D {
 impl Transform3D {
     pub(in crate) fn from_gltf_transform(transform : gltf::scene::Transform) -> Self {
         match transform {
+            #[allow(unused)]
             gltf::scene::Transform::Matrix { matrix } => todo!(),
             gltf::scene::Transform::Decomposed { translation, rotation, scale } => {
                 let mut transform = Transform3D::new();
