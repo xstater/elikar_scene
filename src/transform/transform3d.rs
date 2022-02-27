@@ -1,5 +1,4 @@
 use nalgebra_glm as glm;
-
 use super::Transform2D;
 
 #[derive(Debug, Copy, Clone, PartialEq)]
@@ -11,6 +10,19 @@ pub struct Transform3D {
 }
 
 impl Transform3D {
+    pub(in crate) fn from_gltf_transform(transform : gltf::scene::Transform) -> Self {
+        match transform {
+            gltf::scene::Transform::Matrix { matrix } => todo!(),
+            gltf::scene::Transform::Decomposed { translation, rotation, scale } => {
+                let mut transform = Transform3D::new();
+                transform.translation = glm::make_vec3(&translation);
+                transform.rotation = glm::make_quat(&rotation);
+                transform.scale = glm::make_vec3(&scale);
+                transform
+            },
+        }
+    }
+
     pub fn new() -> Self {
         Transform3D {
             translation: glm::make_vec3(&[0.0, 0.0, 0.0]),
@@ -22,6 +34,13 @@ impl Transform3D {
 
     pub fn translation_matrix(&self) -> glm::TMat4<f32> {
         glm::translation(&self.translation)
+    }
+
+    pub fn look_at(&mut self,position : &Transform3D){
+        let direction = position.translation - self.translation;
+        let up = glm::vec4(0.0,0.0,1.0,0.0);
+        let up = glm::quat_to_mat4(&self.rotation) * up;
+        self.rotation = glm::quat_look_at(&direction, &up.xyz());
     }
 
     pub fn move_to(&mut self, x: f32, y: f32, z: f32) {

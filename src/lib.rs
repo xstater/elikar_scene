@@ -1,11 +1,26 @@
-use std::sync::{Arc, RwLock};
 use xecs::world::World;
 
-pub mod transform;
-pub mod node;
+mod image;
+mod material;
+pub mod mesh;
+mod transform;
+mod camera;
+pub mod gltf;
 
-pub fn init(world : Arc<RwLock<World>>) {
-    let mut world = world.write().unwrap();
-    world.register::<transform::Transform2D>()
-        .register::<transform::Transform3D>();
+pub use transform::{
+    Transform2D,
+    Transform3D
+};
+pub use camera::{
+    Camera2D,
+    Camera3D
+};
+
+pub fn init(world : &mut World) {
+    world.register::<Transform2D>()
+        .register::<Transform3D>()
+        .register::<Camera2D>()
+        .register::<Camera3D>()
+        .register::<mesh::MeshResource>()
+        .register::<mesh::Mesh>();
 }

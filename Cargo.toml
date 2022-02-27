@@ -14,5 +14,6 @@ categories = ["game-development","game-engines"]
 
 [dependencies]
 elikar = "0.1"
-xecs = "0.4"
+xecs = "0.5"
 nalgebra-glm = "0.16"
+gltf = "1.0"
