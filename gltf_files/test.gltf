@@ -3,6 +3,28 @@
         "generator" : "Khronos glTF Blender I/O v1.7.33",
         "version" : "2.0"
     },
+    "extensionsUsed" : [
+        "KHR_lights_punctual"
+    ],
+    "extensionsRequired" : [
+        "KHR_lights_punctual"
+    ],
+    "extensions" : {
+        "KHR_lights_punctual" : {
+            "lights" : [
+                {
+                    "color" : [
+                        1,
+                        1,
+                        1
+                    ],
+                    "intensity" : 1,
+                    "type" : "directional",
+                    "name" : "\u65e5\u5149"
+                }
+            ]
+        }
+    },
     "scene" : 0,
     "scenes" : [
         {
@@ -10,7 +32,8 @@
             "nodes" : [
                 0,
                 2,
-                3
+                3,
+                5
             ]
         }
     ],
@@ -35,10 +58,10 @@
             ],
             "name" : "Camera",
             "rotation" : [
-                0.501147985458374,
-                0.26134198904037476,
-                -0.16191041469573975,
-                0.8089104294776917
+                0.483536034822464,
+                0.33687159419059753,
+                -0.20870360732078552,
+                0.7804827094078064
             ],
             "translation" : [
                 7.358891487121582,
@@ -50,9 +73,35 @@
             "mesh" : 1,
             "name" : "\u7334\u5934",
             "translation" : [
-                2.893843412399292,
+                2.5118770599365234,
                 0,
-                -3.135226011276245
+                0
+            ]
+        },
+        {
+            "extensions" : {
+                "KHR_lights_punctual" : {
+                    "light" : 0
+                }
+            },
+            "name" : "\u65e5\u5149_Orientation",
+            "rotation" : [
+                -0.7071067690849304,
+                0,
+                0,
+                0.7071067690849304
+            ]
+        },
+        {
+            "children" : [
+                4
+            ],
+            "name" : "\u65e5\u5149",
+            "rotation" : [
+                0.07170677185058594,
+                0.5244268774986267,
+                0.4560583233833313,
+                0.7154337167739868
             ]
         }
     ],
@@ -73,6 +122,17 @@
             "doubleSided" : true,
             "name" : "Material",
             "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "index" : 0
+                },
+                "metallicFactor" : 0,
+                "roughnessFactor" : 0.4000000059604645
+            }
+        },
+        {
+            "doubleSided" : true,
+            "name" : "\u6750\u8d28",
+            "pbrMetallicRoughness" : {
                 "baseColorFactor" : [
                     0.800000011920929,
                     0.800000011920929,
@@ -80,7 +140,7 @@
                     1
                 ],
                 "metallicFactor" : 0,
-                "roughnessFactor" : 0.4000000059604645
+                "roughnessFactor" : 0.5
             }
         }
     ],
@@ -108,9 +168,23 @@
                         "NORMAL" : 5,
                         "TEXCOORD_0" : 6
                     },
-                    "indices" : 7
+                    "indices" : 7,
+                    "material" : 1
                 }
             ]
+        }
+    ],
+    "textures" : [
+        {
+            "sampler" : 0,
+            "source" : 0
+        }
+    ],
+    "images" : [
+        {
+            "mimeType" : "image/jpeg",
+            "name" : "cube.jpg",
+            "uri" : "cube.jpg"
         }
     ],
     "accessors" : [
@@ -225,10 +299,16 @@
             "byteOffset" : 63752
         }
     ],
+    "samplers" : [
+        {
+            "magFilter" : 9729,
+            "minFilter" : 9987
+        }
+    ],
     "buffers" : [
         {
             "byteLength" : 69560,
-            "uri" : "untitled.bin"
+            "uri" : "test.bin"
         }
     ]
 }

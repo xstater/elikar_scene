@@ -1,6 +1,6 @@
 [package]
 name = "elikar_scene"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 authors = ["xstater:a166224@163.com"]
 license = "MIT"
@@ -16,4 +16,6 @@ categories = ["game-development","game-engines"]
 elikar = "0.1"
 xecs = "0.5"
 nalgebra-glm = "0.16"
-gltf = "1.0"
+gltf = { version = "1.0", features = ["KHR_lights_punctual"] }
+png = "0.17"
+jpeg-decoder = "0.2"
